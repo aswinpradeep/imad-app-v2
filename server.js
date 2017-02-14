@@ -15,19 +15,19 @@ app.get('/', function (req, res)
 app.get('/article1',function(req,res)
   {
     
-      res.send("article1 initaited");
+      res.sendFile(path.join(__dirname, 'ui', 'article1.html'));
   }
 );
 app.get('/article2',function(req,res)
   {
     
-      res.send("article2 initaited");
+      res.sendFile(path.join(__dirname, 'ui', 'article2.html'));
   }
 );
 app.get('/article3',function(req,res)
   {
     
-      res.send("article3 initaited");
+      res.sendFile(path.join(__dirname, 'ui', 'article3.html'));
   }
 );
 
