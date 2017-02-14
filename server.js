@@ -5,8 +5,10 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var article1=
+var articles=
 {
+    'article1':
+    {
     title:'article1',
     date:'feb 14,2017',
     heading:'article 1 h3',
@@ -45,8 +47,83 @@ var article1=
 
 
 
+   },
+   'article2':
+   {
+       
+       title:'article2',
+    date:'feb 14,2017',
+    heading:'article 2 h3',
+    content:
+ `
+    <p>
+                
+                2p1A! content A! content A! content A! content A! content  A! content A! content A! content A! content A! content  A! content A! content A! content A! content A! content
+                 A! content A! content A! content A! content A! content  A! content A! content A! content A! content A! content  A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content
+                 
+                  A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content
+                
+                
+            </p>
+            <p>
+               2p2 A! content A! content A! content A! content A! content  A! content A! content A! content A! content A! content  A! content A! content A! content A! content A! content
+                 A! content A! content A! content A! content A! content  A! content A! content A! content A! content A! content  A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content
+                 
+                  A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content
+                
+            </p>
+            
+            <p>
+               2p3 A! content A! content A! content A! content A! content  A! content A! content A! content A! content A! content  A! content A! content A! content A! content A! content
+                 A! content A! content A! content A! content A! content  A! content A! content A! content A! content A! content  A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content
+                 
+                  A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content
+                
+                
+                
+            </p> 
+`
+       
+   },
+   'article3':
+   {
+      title:'article3',
+    date:'feb 14,2017',
+    heading:'article 3 h3',
+    content:
+ `
+    <p>
+                
+                3p1A! content A! content A! content A! content A! content  A! content A! content A! content A! content A! content  A! content A! content A! content A! content A! content
+                 A! content A! content A! content A! content A! content  A! content A! content A! content A! content A! content  A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content
+                 
+                  A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content
+                
+                
+            </p>
+            <p>
+               3p2 A! content A! content A! content A! content A! content  A! content A! content A! content A! content A! content  A! content A! content A! content A! content A! content
+                 A! content A! content A! content A! content A! content  A! content A! content A! content A! content A! content  A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content
+                 
+                  A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content
+                
+            </p>
+            
+            <p>
+               p3 A! content A! content A! content A! content A! content  A! content A! content A! content A! content A! content  A! content A! content A! content A! content A! content
+                 A! content A! content A! content A! content A! content  A! content A! content A! content A! content A! content  A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content
+                 
+                  A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content A! content
+                
+                
+                
+            </p> 
+ 
+       
+ `      
+       
+   }
 };
-
 
 function createtemplate(data)
 {
@@ -118,24 +195,16 @@ app.get('/', function (req, res)
 );
 
 
-app.get('/article1',function(req,res)
+app.get('/;articlename',function(req,res)
   {
-    
-      res.send(createtemplate(article1));
+    //article name==article1
+    //articles[articlename]=={}content object for  article 1
+    var articlename=req.params.articlename;
+      res.send(createtemplate(articles[articlename]));
   }
 );
-app.get('/article2',function(req,res)
-  {
-    
-      res.sendFile(path.join(__dirname, 'ui', 'article2.html'));
-  }
-);
-app.get('/article3',function(req,res)
-  {
-    
-      res.sendFile(path.join(__dirname, 'ui', 'article3.html'));
-  }
-);
+
+
 
 
 
