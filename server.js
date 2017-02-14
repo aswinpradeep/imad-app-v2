@@ -199,7 +199,7 @@ app.get('/;articlename',function(req,res)
   {
     //article name==article1
     //articles[articlename]=={}content object for  article 1
-    var articlename=req.params.articlename;
+    var articlename = req.params.articlename;
       res.send(createtemplate(articles[articlename]));
   }
 );
